@@ -2,30 +2,29 @@ package com.devilish.evento.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
 @Entity
-@Table(name = "tb_activity")
-public class Activity {
+@Table(name = "tb_category")
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
     @Column(columnDefinition = "TEXT")
     private String description;
-    private Double price;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
+    @OneToMany(mappedBy = "category")
+    private List<Activity> activities = new ArrayList<>();
 
-    public Activity(){
+    public Category(){
     }
 
-    public Activity(Integer id, String name, String description, Double price) {
+    public Category(Integer id, String description) {
         this.id = id;
-        this.name = name;
         this.description = description;
-        this.price = price;
     }
 
     public Integer getId() {
@@ -36,14 +35,6 @@ public class Activity {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -52,11 +43,8 @@ public class Activity {
         this.description = description;
     }
 
-    public Double getPrice() {
-        return price;
-    }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public List<Activity> getActivities() {
+        return activities;
     }
 }
