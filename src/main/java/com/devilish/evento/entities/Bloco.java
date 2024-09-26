@@ -5,27 +5,27 @@ import jakarta.persistence.*;
 import java.time.Instant;
 
 @Entity
-@Table(name = "tb_block")
-public class Block {
+@Table(name = "tb_bloco")
+public class Bloco {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-    private Instant start;
+    private Instant inicio;
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant fim;
 
     @ManyToOne()
-    @JoinColumn(name = "activity_id")
-    private Activity activity;
+    @JoinColumn(name = "atividade_id")
+    private Atividade atividade;
 
-    public Block(){
+    public Bloco(){
     }
 
-    public Block(Integer id, Instant start, Instant fim) {
+    public Bloco(Integer id, Instant inicio, Instant fim) {
         this.id = id;
-        this.start = start;
+        this.inicio = inicio;
         this.fim = fim;
     }
 
@@ -37,12 +37,12 @@ public class Block {
         this.id = id;
     }
 
-    public Instant getStart() {
-        return start;
+    public Instant getInicio() {
+        return inicio;
     }
 
-    public void setStart(Instant start) {
-        this.start = start;
+    public void setInicio(Instant inicio) {
+        this.inicio = inicio;
     }
 
     public Instant getFim() {
