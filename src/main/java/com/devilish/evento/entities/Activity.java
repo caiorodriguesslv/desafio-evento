@@ -21,8 +21,7 @@ public class Activity {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @OneToMany
-    @JoinColumn(name = "blocks_id")
+    @OneToMany(mappedBy = "activity")
     private List<Block> blocks = new ArrayList<>();
 
     public Activity(){

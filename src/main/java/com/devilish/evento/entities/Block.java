@@ -14,19 +14,19 @@ public class Block {
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant start;
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-    private Instant end;
+    private Instant fim;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "activity_id")
     private Activity activity;
 
     public Block(){
     }
 
-    public Block(Integer id, Instant start, Instant end) {
+    public Block(Integer id, Instant start, Instant fim) {
         this.id = id;
         this.start = start;
-        this.end = end;
+        this.fim = fim;
     }
 
     public Integer getId() {
@@ -45,11 +45,11 @@ public class Block {
         this.start = start;
     }
 
-    public Instant getEnd() {
-        return end;
+    public Instant getFim() {
+        return fim;
     }
 
-    public void setEnd(Instant end) {
-        this.end = end;
+    public void setFim(Instant fim) {
+        this.fim = fim;
     }
 }
