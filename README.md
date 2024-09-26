@@ -1,1 +1,2 @@
-[02 DESAFIO Modelo de domínio e ORM.pdf](https://github.com/user-attachments/files/17156750/02.DESAFIO.Modelo.de.dominio.e.ORM.pdf)
+
+![image](https://github.com/user-attachments/assets/766cbbe8-c577-48ad-8b37-c527501a2adb)
